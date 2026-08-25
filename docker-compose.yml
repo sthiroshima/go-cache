@@ -1,0 +1,11 @@
+services:
+  go-cache-server:
+    build:
+      dockerfile: docker/Dockerfile
+      context: .
+    restart: unless-stopped
+    ports:
+      - "${PORT}:${PORT}"
+    environment:
+      PORT: ${PORT}
+      HOST: ${HOST}

@@ -71,6 +71,23 @@ internal/
 * graceful shutdown
 * working with `context` and OS signals
 
+## Docker
+
+Build and start the server:
+```text
+docker compose up -d --build
+```
+
+Stop the server:
+```text
+docker compose down
+```
+View logs:
+```text
+docker compose logs -f
+```
+The server is available on port 6379.
+
 ## Version
 
-`v1.0.0`
+`v1.1.0`
