@@ -2,19 +2,17 @@ package main
 
 import (
 	"log"
-	"os"
-	"strconv"
 
 	"github.com/sthiroshima/go-cache/internal"
 )
 
 func main() {
-	port, err := strconv.Atoi(os.Getenv("PORT"))
+	cfg, err := internal.CfgLoad()
 	if err != nil {
-		log.Fatal("Validation PORT error: ", err)
+		log.Fatal("Config validation error: ", err)
 	}
 
-	server := internal.NewServer("tcp", port)
+	server := internal.NewServer("tcp", cfg.Port)
 	if err := server.Run(); err != nil {
 		log.Fatal(err)
 	}
